@@ -412,6 +412,14 @@ a {
   line-height: 1.6;
 }
 
+.vpn-price {
+  color: var(--text);
+  font-family: "Space Grotesk", "Manrope", sans-serif;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
 .service-list {
   display: grid;
   gap: 18px;
