@@ -420,6 +420,18 @@ a {
   margin-bottom: 12px;
 }
 
+.payment-button {
+  width: 100%;
+}
+
+.payment-button iframe {
+  display: block;
+  width: 100%;
+  max-width: 330px;
+  height: 50px;
+  border: 0;
+}
+
 .service-list {
   display: grid;
   gap: 18px;
