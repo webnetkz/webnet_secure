@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://webnet.kz/sitemap.xml
+Host: webnet.kz
