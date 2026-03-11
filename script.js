@@ -38,3 +38,54 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     }
   });
 });
+
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if (navToggle && navLinks) {
+  const closeNavMenu = () => {
+    navLinks.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  };
+
+  const openNavMenu = () => {
+    navLinks.classList.add("is-open");
+    navToggle.setAttribute("aria-expanded", "true");
+  };
+
+  navToggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const isOpen = navLinks.classList.contains("is-open");
+    if (isOpen) {
+      closeNavMenu();
+      return;
+    }
+    openNavMenu();
+  });
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      closeNavMenu();
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    const clickedInsideMenu = navLinks.contains(event.target);
+    const clickedToggle = navToggle.contains(event.target);
+    if (!clickedInsideMenu && !clickedToggle) {
+      closeNavMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeNavMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      closeNavMenu();
+    }
+  });
+}
